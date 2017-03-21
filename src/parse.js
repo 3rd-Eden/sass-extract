@@ -1,12 +1,12 @@
 import sass from 'node-sass';
 
-const REGEX_VARIABLE_GLOBAL_IMPLICIT = /(\$[\w-_]+)\s*:\s*((.*?\n?)+?);/g;
-const REGEX_VARIABLE_GLOBAL_EXPLICIT = /(\$[\w-_]+)\s*:\s*(.*?)\s+!global\s*;/g;
+const REGEX_VARIABLE_GLOBAL_IMPLICIT = /(\$[\w-_]+)\s*:\s*([^;]+?);/g;
+const REGEX_VARIABLE_GLOBAL_EXPLICIT = /(\$[\w-_]+)\s*:\s*([^;]+?)\s*!global;/g;
 const REGEX_DEEP_CONTEXT = /({[^{}]*})/g;
 const REGEX_COMMENTS = /(\/\*(.*?\n?)+\*\/)|(\/\/.*?($|\n))/g;
 
 /**
- * Strip a string for all occurences that matches provided regex
+ * Strip a string for all occurrences that matches provided regex
  */
 function stripByRegex(data, regex) {
   let strippedData = data;

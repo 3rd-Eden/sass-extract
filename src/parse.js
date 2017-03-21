@@ -3,7 +3,7 @@ import sass from 'node-sass';
 const REGEX_VARIABLE_GLOBAL_IMPLICIT = /(\$[\w-_]+)\s*:\s*([^;]+?);/g;
 const REGEX_VARIABLE_GLOBAL_EXPLICIT = /(\$[\w-_]+)\s*:\s*([^;]+?)\s*!global;/g;
 const REGEX_DEEP_CONTEXT = /({[^{}]*})/g;
-const REGEX_COMMENTS = /(\/\*(.*?\n?)+\*\/)|(\/\/.*?($|\n))/g;
+const REGEX_COMMENTS = /(\/\*(?:(?!\*\/)[\s\S])*\*\/)|([\/]{2}.*)/g;
 
 /**
  * Strip a string for all occurrences that matches provided regex

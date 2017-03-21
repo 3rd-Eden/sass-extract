@@ -5,7 +5,7 @@ import path from 'path';
  */
 function findAbsolutePath(extractions, relativePath) {
   const filenames = Object.keys(extractions);
-  
+
   for(let i = 0; i < filenames.length; i++) {
     if(filenames[i].match(relativePath)) {
       return filenames[i];
@@ -31,6 +31,15 @@ function getImportAbsolutePath(extractions, url, prev) {
   if(prev === 'stdin') {
     absolutePath = findAbsolutePath(extractions, absolutePath);
   }
+
+  Object.keys(extractions).some(key => {
+    if (~key.indexOf(absolutePath)) {
+      absolutePath = key;
+      return true;
+    }
+
+    return false;
+  });
 
   return absolutePath;
 }

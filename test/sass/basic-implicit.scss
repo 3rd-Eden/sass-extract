@@ -9,3 +9,12 @@ $map: (
   number: 2em,
   string: 'mapstring'
 );
+$palette: (
+  white: (
+    base: (color: #fff, contrast: #2b2b2b)
+  ),
+  black: (
+    base: (color: #111, contrast: #fff),
+    dark: (color: #000, contrast: #fff)
+  )
+) !default;

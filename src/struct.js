@@ -51,11 +51,7 @@ function makeValue(sassValue) {
       const mapLength = sassValue.getLength();
       const mapValue = {};
       for(let i = 0; i < mapLength; i++) {
-        const key = sassValue.getKey(i);
-
-        if (key.getValue) {
-          mapValue[key.getValue()] = createStructuredValue(sassValue.getValue(i));
-        }
+        mapValue[sassValue.getKey(i).getValue()] = createStructuredValue(sassValue.getValue(i));
       }
       return { value: mapValue };
 
